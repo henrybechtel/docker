@@ -4,9 +4,7 @@
 docker run -d \
     --name pg_container \
     -v ./_pg15_data:/var/lib/postgresql/data \
-    -v ./code/curious_moon:/code \
-    -v ./data/cassini:/data \
-    -e POSTGRES_USER=henry \
+    -e POSTGRES_USER=postgres \
     -e POSTGRES_PASSWORD=postgres \
     -p 5432:5432 \
     postgres:15 
@@ -15,4 +13,4 @@ docker run -d \
 docker exec -it pg_container bash
 
 # Start psql
-# psql -U henry
+# psql -U postgres
