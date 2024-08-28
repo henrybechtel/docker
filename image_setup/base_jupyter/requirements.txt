@@ -1,0 +1,15 @@
+jupyter>=1.0
+python-dotenv>=0.5
+pytest
+azure-storage-file-datalake>=12.15
+azure-identity>=1.16
+numpy>=1.24
+pandas>=1.4
+pyarrow
+adlfs
+matplotlib>=3.8
+statsmodels
+scikit-learn
+scipy
+tqdm
+pyodbc>=4.0
