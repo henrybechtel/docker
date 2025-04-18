@@ -3,7 +3,7 @@
 # docker build -t duckdb:latest .
 
 # Starting with python base
-FROM python:3.10
+FROM python:3.11
 
 # Set the working directory inside the container
 WORKDIR /image_setup
