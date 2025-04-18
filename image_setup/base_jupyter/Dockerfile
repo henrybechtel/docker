@@ -3,14 +3,13 @@
 # docker build -t base_jupyter:latest .
 
 # Starting with python base
-FROM python:3.10
+FROM python:3.11
 
 # Set the working directory inside the container
 WORKDIR /image_setup
 
 # Copy the current directory contents into the working directory
 COPY . /image_setup
-
 
 # Install the dependencies
 RUN pip3 install -r requirements.txt 
