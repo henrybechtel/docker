@@ -1,0 +1,10 @@
+python-dotenv>=0.5
+pytest
+numpy>=1.24
+pandas>=1.4
+pyarrow
+matplotlib>=3.8
+tqdm
+pyodbc>=4.0
+duckdb 
+deltalake>=0.24

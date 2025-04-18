@@ -1,0 +1,36 @@
+version: "3.9"
+
+# Run this with 'docker compose up'. This will create the postgres and pgadmin images and run the container. Access the pgadmin UI by going to 'http://localhost:8888/'.
+# To create a new sever locally, use host name = host.docker.internal
+
+services:
+
+  postgres_db:
+    container_name: postgres_db
+    image: postgres:12
+
+    expose:
+      - "5431" # Publishes 5433 to other containers but NOT to host machine
+    ports:
+      - "5431:5431"
+    command: -p 5431
+
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pg@pg.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    volumes:
+      - ./pgadmin-data:/var/lib/pgadmin
+

@@ -1,0 +1,81 @@
+version: "3.8"
+services:
+
+
+  # jupyter:
+  #   image: jupyter/pyspark-notebook:latest
+  #   container_name: jupyter
+  #   volumes:
+  #     - ./:/home/jovyan/work
+  #   ports:
+  #     - 8888:8888
+  #   environment:
+  #     JUPYTER_ENABLE_LAB: "yes"
+  #     JUPYTER_TOKEN: "docker"
+
+
+  # ansible:
+  #   image: alpinelinux/ansible:latest
+  #   container_name: ansible
+  #   volumes:
+  #     - ./:/dws
+  #   stdin_open: true # Enables stdin (interactive mode)
+  #   tty: true        # Allocates a pseudo-TTY
+
+
+  # base:
+  #   image: vimbase:latest
+  #   container_name: base
+  #   volumes:
+  #     - ./:/dws
+  #   stdin_open: true # Enables stdin (interactive mode)  # docker run -i
+  #   tty: true        # Allocates a pseudo-TTY            # docker run -t
+
+
+  # base_spark:
+  #   image: base_spark:latest
+  #   container_name: base_spark
+  #   volumes:
+  #     - ./:/dws
+  #   stdin_open: true # Enables stdin (interactive mode)  # docker run -i
+  #   tty: true        # Allocates a pseudo-TTY            # docker run -t
+
+
+
+  base_jupyter:
+    image: base_jupyter:latest
+    container_name: base_jupyter
+    volumes:
+      - ./:/app
+    ports:
+      - 8888:8888
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      JUPYTER_TOKEN: "docker"
+    stdin_open: true # Enables stdin (interactive mode)  # docker run -i
+    tty: true        # Allocates a pseudo-TTY            # docker run -t
+    command: ["jupyter", "notebook", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root"]
+
+
+  # base_spark_jupyter:
+  #   image: base_spark_jupyter:latest
+  #   container_name: base_spark_jupyter
+  #   volumes:
+  #     - ./:/app
+  #   ports:
+  #     - 8888:8888
+  #   environment:
+  #     JUPYTER_ENABLE_LAB: "yes"
+  #     JUPYTER_TOKEN: "docker"
+  #   stdin_open: true # Enables stdin (interactive mode)  # docker run -i
+  #   tty: true        # Allocates a pseudo-TTY            # docker run -t
+  #   command: ["jupyter", "notebook", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root"]
+
+
+  # dscl:
+  #   image: dscl:latest
+  #   container_name: dscl
+  #   volumes:
+  #     - ./:/dws
+  #   stdin_open: true # Enables stdin (interactive mode)
+  #   tty: true        # Allocates a pseudo-TTY

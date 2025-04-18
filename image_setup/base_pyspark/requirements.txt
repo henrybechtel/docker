@@ -1,0 +1,8 @@
+pyspark==3.5
+python-dotenv==0.5
+pytest
+numpy
+pandas
+pyarrow
+matplotlib
+deltalake>=0.24
