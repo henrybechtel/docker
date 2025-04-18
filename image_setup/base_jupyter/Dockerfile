@@ -6,14 +6,17 @@
 FROM python:3.10
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /image_setup
 
 # Copy the current directory contents into the working directory
-COPY . /app
+COPY . /image_setup
+
 
 # Install the dependencies
 RUN pip3 install -r requirements.txt 
 
+# Back out of the image_setup directory
+WORKDIR /
 
 # Install vim and curl
 RUN ["apt-get", "update"]

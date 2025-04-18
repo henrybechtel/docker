@@ -13,3 +13,4 @@ scikit-learn
 scipy
 tqdm
 pyodbc>=4.0
+duckdb 
